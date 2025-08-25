@@ -1,346 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nithish M - Portfolio</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithish M - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        :root {
+            --bg-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-dark: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            --header-bg-light: rgba(255, 255, 255, 0.1);
+            --header-bg-dark: rgba(0, 0, 0, 0.2);
+            --text-color-light: #333;
+            --text-color-dark: #fff;
+            --section-bg-light: rgba(255, 255, 255, 0.95);
+            --section-bg-dark: rgba(20, 20, 20, 0.9);
+            --section-shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --section-shadow-dark: 0 10px 30px rgba(255, 255, 255, 0.05);
+            --card-bg-light: white;
+            --card-bg-dark: #222;
+            --card-shadow-light: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --card-shadow-dark: 0 5px 20px rgba(255, 255, 255, 0.05);
+            --link-color-light: #007bff;
+            --link-color-dark: #82aaff;
+            --icon-color-light: linear-gradient(45deg, #667eea, #764ba2);
+            --icon-color-dark: linear-gradient(45deg, #82aaff, #e0a3f0);
+            --border-light: 1px solid rgba(0, 0, 0, 0.05);
+            --border-dark: 1px solid rgba(255, 255, 255, 0.1);
 
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 1200px; margin: 0 auto; padding: 20px;
-    }
-    /* Header */
-    .header {
-      text-align: center;
-      padding: 60px 0;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .profile-img {
-      width: 150px; height: 150px; border-radius: 50%;
-      margin: 0 auto 20px;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 60px; color: white; font-weight: bold;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .header h1 { font-size: 3em; color: white; margin-bottom: 10px; font-weight: 300; }
-    .header p { font-size: 1.3em; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
-    .header .bio {
-      max-width: 600px; margin: 0 auto;
-      font-size: 1.1em; color: rgba(255,255,255,0.8); line-height: 1.8;
-    }
-    .resume-btn {
-      display: inline-block; margin-top: 30px;
-      padding: 15px 30px; background: linear-gradient(45deg,#ff6b6b,#ee5a24);
-      color: white; text-decoration: none; border-radius: 50px;
-      font-weight: bold; font-size: 1.1em; transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(238,90,36,0.4);
-    }
-    .resume-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(238,90,36,0.6);
-    }
-    /* Sections */
-    .section {
-      background: rgba(255,255,255,0.95);
-      margin: 30px 0; padding: 40px; border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      backdrop-filter: blur(10px);
-      animation: fadeInUp 0.6s ease;
-    }
-    .section h2 {
-      font-size: 2.5em; margin-bottom: 30px; color: #333; text-align: center; position: relative;
-    }
-    .section h2::after {
-      content: ''; width: 60px; height: 4px;
-      background: linear-gradient(45deg,#667eea,#764ba2);
-      display: block; margin: 15px auto; border-radius: 2px;
-    }
-    /* Skills */
-    .skills {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px; margin-top: 30px;
-    }
-    .skill-item {
-      background: rgba(255,255,255,0.8);
-      padding: 20px; border-radius: 10px; text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    .skill-item h4 { color: #333; margin-bottom: 10px; }
-    .skill-bar { background:#e0e0e0; height:8px; border-radius:4px; overflow:hidden; margin-top:10px; }
-    .skill-progress { height:100%; background:linear-gradient(45deg,#667eea,#764ba2); }
-    /* Projects */
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-      gap: 30px; margin-top: 30px;
-    }
-    .project-card {
-      background:white; border-radius:15px; padding:30px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.1);
-      transition:all 0.3s ease; border:1px solid rgba(0,0,0,0.05);
-    }
-    .project-card:hover { transform: translateY(-10px); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
-    .project-card h3 { font-size:1.5em; margin-bottom:15px; }
-    /* Certifications */
-    .certifications {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px; margin-top:30px;
-    }
-    .cert-item {
-      background:white; padding:25px; border-radius:15px;
-      text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1);
-      transition:all 0.3s ease; border:1px solid rgba(0,0,0,0.05);
-    }
-    .cert-item:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
-    .cert-icon {
-      width:70px;height:70px;margin:0 auto 20px;
-      background:linear-gradient(45deg,#667eea,#764ba2);
-      border-radius:50%; display:flex; align-items:center; justify-content:center;
-      font-size:2em; color:white;
-    }
-    .cert-item h4 { margin-bottom:10px; font-size:1.3em; font-weight:600; }
-    .cert-issuer { color:#667eea; font-weight:600; }
-    .cert-date { color:#666; font-size:0.9em; margin-bottom:20px; font-style:italic; }
-    /* Contact */
-    .contact-icons {
-      display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px;
-    }
-    .contact-icon {
-      display:flex; flex-direction:column; align-items:center;
-      text-decoration:none; color:#333; transition:all 0.3s ease;
-      padding:20px; border-radius:15px; background:rgba(255,255,255,0.8);
-      box-shadow:0 5px 15px rgba(0,0,0,0.1); min-width:120px;
-    }
-    .contact-icon:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
-    .contact-icon i {
-      font-size:2.5em; margin-bottom:10px;
-      background:linear-gradient(45deg,#667eea,#764ba2);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
-    /* Animations */
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(30px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-	.project-card h3 a {
-  	text-decoration: none;   /* removes underline */
-  	color: inherit;          /* makes link color same as heading */
-  	cursor: pointer;         /* shows it's clickable */
-	}
+            --navbar-bg-light: #667eea;
+            --navbar-bg-dark: #2c3e50;
+        }
 
-	.project-card h3 a:hover {
-  	color: #007bff;          /* optional hover effect */
-	}
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-light);
+            background: var(--bg-light);
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
 
-.card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  max-width: 900px;
-}
+        body.dark-mode {
+            color: var(--text-color-dark);
+            background: var(--bg-dark);
+        }
+        body.dark-mode .header {
+            background: var(--header-bg-dark);
+            border: var(--border-dark);
+        }
+        body.dark-mode .header h1,
+        body.dark-mode .header p {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .section {
+            background: var(--section-bg-dark);
+            box-shadow: var(--section-shadow-dark);
+        }
+        body.dark-mode .section h2,
+        body.dark-mode .section h3,
+        body.dark-mode .section h4,
+        body.dark-mode .section p {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .section h2::after {
+            background: var(--icon-color-dark);
+        }
+        body.dark-mode .card,
+        body.dark-mode .project-card,
+        body.dark-mode .cert-item,
+        body.dark-mode .contact-icon,
+        body.dark-mode .skill-item {
+            background: var(--card-bg-dark);
+            box-shadow: var(--card-shadow-dark);
+            border: var(--border-dark);
+        }
+        body.dark-mode .project-card h3 a {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .cert-issuer {
+            color: #b3c0ff;
+        }
+        body.dark-mode .cert-date {
+            color: #aaa;
+        }
+        body.dark-mode .contact-icon span {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .skill p {
+            color: var(--text-color-dark);
+        }
+        body.dark-mode .project-card h3 a:hover {
+            color: var(--link-color-dark);
+        }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  text-align: center;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--header-bg-light);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 {
+            font-size: 3em;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        .header p {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        .header .bio {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+        .resume-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+        }
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.6);
+        }
+        .section {
+            background: var(--section-bg-light);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--section-shadow-light);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.6s ease;
+            transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--text-color-light);
+            text-align: center;
+            position: relative;
+            transition: color 0.5s ease;
+        }
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--icon-color-light);
+            display: block;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .skill-item {
+            background: var(--card-bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow-light);
+            transition: all 0.3s ease;
+            border: var(--border-light);
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .skill-item i {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+        .skill-item p {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color-light);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .project-card {
+            background: var(--card-bg-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--card-shadow-light);
+            transition: all 0.3s ease;
+            border: var(--border-light);
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .project-card h3 a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .project-card h3 a:hover {
+            color: var(--link-color-light);
+        }
+        .project-year {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #666;
+            white-space: nowrap;
+        }
+        body.dark-mode .project-year {
+            color: #aaa;
+        }
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .cert-item {
+            background: var(--card-bg-light);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--card-shadow-light);
+            transition: all 0.3s ease;
+            border: var(--border-light);
+        }
+        .cert-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        .cert-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--icon-color-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+        }
+        .cert-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        .cert-issuer {
+            color: #667eea;
+            font-weight: 600;
+        }
+        .cert-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .contact-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+        }
+        .contact-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .contact-icon i {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: var(--icon-color-light);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card {
+            background: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 900px;
+            transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--navbar-bg-light);
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.5s ease;
+        }
+        body.dark-mode .navbar {
+            background: var(--navbar-bg-dark);
+        }
+        .navbar-links {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .navbar-name {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+            text-decoration: none;
+            padding-left: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .navbar a:hover::after {
+            transform: scaleX(1);
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        .dark-mode-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .dark-mode-toggle .fa-sun, .dark-mode-toggle .fa-moon {
+            transition: opacity 0.3s ease;
+        }
+        body.dark-mode .dark-mode-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffd700;
+        }
+        .internship-item h3 {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .internship-item .duration {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .internship-item .description {
+            color: #555;
+        }
+        .internship-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .project-year {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #666;
+            white-space: nowrap;
+        }
+        body.dark-mode .project-year {
+            color: #aaa;
+        }
 
-.skill i {
-  font-size: 40px;
-  margin-bottom: 8px;
-}
-
-.skill p {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-}
-
-
-
-
-
-  </style>
+        /* Mobile-first adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 10px;
+                text-align: center;
+            }
+            .navbar-name {
+                padding: 0;
+                margin-bottom: 10px;
+            }
+            .navbar-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar a {
+                margin: 5px 8px;
+                font-size: 0.9em;
+            }
+            .dark-mode-toggle {
+                top: 10px;
+                right: 10px;
+            }
+            .container {
+                padding-top: 120px; /* Adjust content for fixed nav */
+            }
+            .header {
+                padding: 40px 0;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .section {
+                padding: 30px 20px;
+            }
+            .section h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .projects-grid, .certifications, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-card, .cert-item {
+                padding: 20px;
+            }
+            .contact-icons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <div class="profile-img">NM</div>
-      <h1>Nithish M</h1>
-      <p>ECE Student | Aspiring Developer | IoT & ML Enthusiast</p>
-      <div class="bio">
-        An aspiring Engineering student with a strong passion for exploring emerging technologies and continuously expanding knowledge. 
-	A responsible and reliable team player, committed to contributing effectively and collaboratively while maintaining 
-	a keen curiosity for the latest innovations.
-      </div>
-      <a href="https://drive.google.com/file/d/1uE36soPjaH2heiBSm_NddhZF02sWS-9q/view?usp=sharing" class="resume-btn" target="_blank">
-        <i class="fas fa-file-alt"></i> View Resume
-      </a>
-    </header>
-
-    <!-- Education -->
-     <section class="section">
-      <h2>Education</h2>
-      <div class="certifications">
-        <div class="cert-item">
-          <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h4>B.E. Electronics and Communication Engineering</h4>
-          <p class="cert-issuer">SNS College of Technology</p>
-          <p class="cert-date">2022 – 2026</p>
-          <p><strong>CGPA:</strong> 8.73 / 10</p>
+    <nav class="navbar">
+        <a href="#top" class="navbar-name">Nithish M</a>
+        <div class="navbar-links">
+            <a href="#top">Home</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#internships">Internships</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
         </div>
-      </div>
-    </section>
+    </nav>
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    <div class="container" id="top">
+        <header class="header">
+            <div class="profile-img">NM</div>
+            <h1>Nithish M</h1>
+            <p>ECE Student | Aspiring Developer | IoT & ML Enthusiast</p>
+            <div class="bio">
+                An aspiring Engineering student with a strong passion for exploring emerging technologies and continuously expanding knowledge. A responsible and reliable team player, committed to contributing effectively and collaboratively while maintaining a keen curiosity for the latest innovations.
+            </div>
+            <a href="https://drive.google.com/file/d/1uE36soPjaH2heiBSm_NddhZF02sWS-9q/view?usp=sharing" class="resume-btn" target="_blank">
+                <i class="fas fa-file-alt"></i> View Resume
+            </a>
+        </header>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <h2>Skills & Expertise</h2>
-      <div class="card">
-    <div class="skills-grid">
-      <div class="skill">
-        <i class="devicon-c-plain colored"></i>
-        <p>C</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-python-plain colored"></i>
-        <p>Python</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-arduino-plain colored"></i>
-        <p>Arduino</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-java-plain colored"></i>
-        <p>Java</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-git-plain colored"></i>
-        <p>Git</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-html5-plain colored"></i>
-        <p>HTML</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-mysql-plain colored"></i>
-        <p>SQL</p>
-      </div>
-      <div class="skill">
-        <i class="devicon-vscode-plain colored"></i>
-        <p>Verilog</p>
-      </div>
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="certifications">
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>B.E. Electronics and Communication Engineering</h4>
+                    <p class="cert-issuer">SNS College of Technology</p>
+                    <p class="cert-date">2022 – 2026</p>
+                    <p><strong>CGPA:</strong> 8.73 / 10</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-school"></i></div>
+                    <h4>HSC</h4>
+                    <p class="cert-issuer">GKD Matriculation Higher Secondary School</p>
+                    <p class="cert-date">2022</p>
+                    <p><strong>Percentage:</strong> 84.16%</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-school"></i></div>
+                    <h4>SSLC</h4>
+                    <p class="cert-issuer">GKD Matriculation Higher Secondary School</p>
+                    <p class="cert-date">2020</p>
+                    <p><strong>Percentage:</strong> 84.2%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="devicon-c-plain colored"></i>
+                    <p>C</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-python-plain colored"></i>
+                    <p>Python</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-arduino-plain colored"></i>
+                    <p>Arduino</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-java-plain colored"></i>
+                    <p>Java</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-git-plain colored"></i>
+                    <p>Git</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-html5-plain colored"></i>
+                    <p>HTML</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-mysql-plain colored"></i>
+                    <p>SQL</p>
+                </div>
+                <div class="skill-item">
+                    <i class="devicon-vscode-plain colored"></i>
+                    <p>Verilog</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title">LiFi Communication</div>
+                        <span class="project-year">2022</span>
+                    </h3>
+                    <p>This project demonstrates wireless data transmission using visible light communication (VLC) technology, known as Li-Fi. By modulating LED light intensity at very high speeds, digital information is transmitted to a photodiode receiver, which then decodes the data back into a usable format.</p>
+                </div>
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title"><a href="https://github.com/nithish11124/Ultrasonic_Braking_System" target="_blank">Ultrasonic Braking System</a></div>
+                        <span class="project-year">2023</span>
+                    </h3>
+                    <p>Developed a safety mechanism using ultrasonic sensors to automatically apply brakes when obstacles are detected, reducing chances of collision.</p>
+                </div>
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title"><a href="https://github.com/nithish11124/No_parking_Detector" target="_blank">No Parking Detector (YOLOv8)</a></div>
+                        <span class="project-year">2023</span>
+                    </h3>
+                    <p>Built a computer vision system using YOLOv8 to detect illegal parking in restricted areas with real-time alerts to authorities.</p>
+                </div>
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title">Advanced GPS Tracking System</div>
+                        <span class="project-year">2024</span>
+                    </h3>
+                    <p>Designed to provide real-time location tracking with improved accuracy and reliability. Using GPS modules integrated with microcontrollers, the system continuously monitors position data and transmits it to a central interface for visualization.</p>
+                </div>
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title"><a href="https://github.com/nithish11124/Auxiliary_Voting_System" target="_blank">Auxiliary Voting System</a></div>
+                        <span class="project-year">2024</span>
+                    </h3>
+                    <p>Designed an electronic voting system prototype to enhance transparency and efficiency in small-scale elections, ensuring secure vote casting.</p>
+                </div>
+                <div class="project-card">
+                    <h3>
+                        <div class="project-title">Gen AI based Intelligent Monitoring for Wildlife Protection</div>
+                        <span class="project-year">2025 (Ongoing)</span>
+                    </h3>
+                    <p>An AI-powered monitoring system that uses cameras and sensors to detect unauthorized human activity in forests, helping prevent poaching and illegal logging. The system provides real-time alerts, event summarization, and daily automated reports to support conservation efforts and safeguard biodiversity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="internships" class="section">
+            <h2>Internship Experience</h2>
+            <div class="projects-grid">
+                <div class="project-card internship-item">
+                    <h3>
+                        <div class="project-title">
+                            <i class="fas fa-code internship-icon"></i>
+                            NXT Logic Software Solutions
+                        </div>
+                        <span class="project-year">2024</span>
+                    </h3>
+                    <p class="description">ASP Web Development</p>
+                </div>
+                <div class="project-card internship-item">
+                    <h3>
+                        <div class="project-title">
+                            <i class="fas fa-microchip internship-icon"></i>
+                            SNS College of Technology
+                        </div>
+                        <span class="project-year">2024</span>
+                    </h3>
+                    <p class="description">VLSI RTL Design to GDS II Flow</p>
+                </div>
+                <div class="project-card internship-item">
+                    <h3>
+                        <div class="project-title">
+                            <i class="fas fa-compass internship-icon"></i>
+                            Unimax Technologies
+                        </div>
+                        <span class="project-year">2025</span>
+                    </h3>
+                    <p class="description">GPS Assembly and PCB Design</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python Programming Certification</h4>
+                    <p class="cert-issuer">LinkedIn Learning</p>
+                    <p class="cert-date">Issued: Apr 20, 2024</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python Basic Certification</h4>
+                    <p class="cert-issuer">HackerRank</p>
+                    <p class="cert-date">Issued: Jul 05, 2025</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-database"></i></div>
+                    <h4>SQL Basic Certification</h4>
+                    <p class="cert-issuer">HackerRank</p>
+                    <p class="cert-date">Issued: Jul 12, 2025</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-file-alt"></i></div>
+                    <h4>Patent in Smart Ultrasonic Braking System using IoT</h4>
+                    <p class="cert-issuer">Intellectual Property India</p>
+                    <p class="cert-date">Issued: Feb 07, 2024</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                    <h4>Cloud Computing (Elite)</h4>
+                    <p class="cert-issuer">NPTEL</p>
+                    <p class="cert-date">Issued: Nov, 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/nithish-m2004" class="contact-icon" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+                <a href="https://github.com/nithish11124" class="contact-icon" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
+                <a href="mailto:nithishmanokaran11124@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i><span>Email</span></a>
+                <a href="tel:+917339692975" class="contact-icon"><i class="fas fa-phone"></i><span>Phone</span></a>
+            </div>
+        </section>
     </div>
-      </div>
-    </section>
 
-    <!-- Projects -->
-    <section class="section">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-		          <div class="project-card">
-          <h3>LiFi Communication</a></h3>
-          <p>This project demonstrates wireless data transmission using visible light communication (VLC) technology, known as Li-Fi.
-			  By modulating LED light intensity at very high speeds, digital information is transmitted to a photodiode receiver, which 
-			  then decodes the data back into a usable format.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/nithish11124/Ultrasonic_Braking_System" target="_blank">Ultrasonic Braking System</a></h3>
-          <p>Developed a safety mechanism using ultrasonic sensors to automatically apply brakes when obstacles are detected, 
-             reducing chances of collision.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/nithish11124/No_parking_Detector" target="_blank">No Parking Detector (YOLOv8)</a></h3>
-          <p>Built a computer vision system using YOLOv8 to detect illegal parking in restricted areas with real-time alerts 
-             to authorities.</p>
-        </div>
-         <div class="project-card">
-          <h3>Advanced GPS Tracking System</a></h3>
-          <p>Designed to provide real-time location tracking with improved accuracy and reliability. Using GPS modules integrated
-			  with microcontrollers, the system continuously monitors position data and transmits it to a central interface for visualization.</p>
-         </div>
-			 <div class="project-card">
-          <h3><a href="https://github.com/nithish11124/Auxiliary_Voting_System" target="_blank">Auxiliary Voting System</a></h3>
-          <p>An AI-powered monitoring system that uses cameras and sensors to detect unauthorized human activity in forests, 
-			  helping prevent poaching and illegal logging. The system provides real-time alerts, event summarization, 
-			  and daily automated reports to support conservation efforts and safeguard biodiversity.</p>
-        </div>
-		  <div class="project-card">
-          <h3>Gen AI based Intelligent Monitoring for Wildlife Protection</h3>
-          <p>Designed an electronic voting system prototype to enhance transparency and efficiency in small-scale elections, 
-             ensuring secure vote casting.</p>
-        </div>
-      </div>
-    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('darkModeToggle');
+            const body = document.body;
 
-    <!-- Certifications -->
-    <section class="section">
-      <h2>Certifications</h2>
-      <div class="certifications">
-        <div class="cert-item">
-          <div class="cert-icon"><i class="fab fa-python"></i></div>
-          <h4>Python Programming Certification</h4>
-          <p class="cert-issuer">LinkedIn Learning</p>
-          <p class="cert-date">Issued: Apr 20, 2024</p>
-        </div>
- 	<div class="cert-item">
-          <div class="cert-icon"><i class="fab fa-python"></i></div>
-          <h4>Python Basic Certification</h4>
-          <p class="cert-issuer">HackerRank</p>
-          <p class="cert-date">Issued: Jul 05, 2025</p>
-        </div>
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                if (savedTheme === 'dark-mode') {
+                    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+            }
 
-        <div class="cert-item">
-          <div class="cert-icon"><i class="fas fa-database"></i></div>
-          <h4>SQL Basic Certification</h4>
-          <p class="cert-issuer">HackerRank</p>
-          <p class="cert-date">Issued: Jul 12, 2025</p>
-        </div>
-		  <div class="cert-item">
-          <h4>Patent in Smart Ultrasonic Braking System using IoT</h4>
-          <p class="cert-issuer">Intellectual Property India </p>
-          <p class="cert-date">Issued: Feb 07, 2024</p>
-		  </div>
-			   <div class="cert-item">
-          <h4>Cloud Computing (Elite)</h4>
-          <p class="cert-issuer">NPTEL</p>
-          <p class="cert-date">Issued: Nov, 2024</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section">
-      <h2>Contact Me</h2>
-      <div class="contact-icons">
-        <a href="https://www.linkedin.com/in/nithish-m2004" class="contact-icon" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-        <a href="https://github.com/nithish11124" class="contact-icon" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
-        <a href="mailto:nithishmanokaran11124@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i><span>Email</span></a>
-        <a href="tel:+917339692975" class="contact-icon"><i class="fas fa-phone"></i><span>Phone</span></a>
-      </div>
-    </section>
-  </div>
+            toggleButton.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('theme', '');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
