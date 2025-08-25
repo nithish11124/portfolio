@@ -1,0 +1,13 @@
+<section id="new-section" class="section">
+    <h2>New Section</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>1st Content</h3>
+            <p>This is the first piece of content for the new section.</p>
+        </div>
+        <div class="project-card">
+            <h3>2nd Content</h3>
+            <p>This is the second piece of content for the new section.</p>
+        </div>
+    </div>
+</section>
