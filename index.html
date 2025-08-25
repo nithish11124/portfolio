@@ -28,19 +28,15 @@
             --icon-color-dark: linear-gradient(45deg, #82aaff, #e0a3f0);
             --border-light: 1px solid rgba(0, 0, 0, 0.05);
             --border-dark: 1px solid rgba(255, 255, 255, 0.1);
-
             --navbar-bg-light: #667eea;
             --navbar-bg-dark: #2c3e50;
         }
-
         * {
             margin: 0; padding: 0; box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -49,7 +45,6 @@
             min-height: 100vh;
             transition: background 0.5s ease, color 0.5s ease;
         }
-
         body.dark-mode {
             color: var(--text-color-dark);
             background: var(--bg-dark);
@@ -59,7 +54,8 @@
             border: var(--border-dark);
         }
         body.dark-mode .header h1,
-        body.dark-mode .header p {
+        body.dark-mode .header p,
+        body.dark-mode .header .bio {
             color: var(--text-color-dark);
         }
         body.dark-mode .section {
@@ -102,7 +98,6 @@
         body.dark-mode .project-card h3 a:hover {
             color: var(--link-color-dark);
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -111,7 +106,7 @@
         .header {
             text-align: center;
             padding: 60px 0;
-            background: var(--header-bg-light);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin-bottom: 40px;
@@ -479,7 +474,6 @@
         body.dark-mode .project-year {
             color: #aaa;
         }
-
         /* Mobile-first adjustments */
         @media (max-width: 768px) {
             .navbar {
@@ -504,7 +498,7 @@
                 right: 10px;
             }
             .container {
-                padding-top: 120px; /* Adjust content for fixed nav */
+                padding-top: 120px;
             }
             .header {
                 padding: 40px 0;
@@ -552,7 +546,7 @@
         <i class="fas fa-moon"></i>
     </button>
     <div class="container" id="top">
-        <header class="header">
+        <header class="section header">
             <div class="profile-img">NM</div>
             <h1>Nithish M</h1>
             <p>ECE Student | Aspiring Developer | IoT & ML Enthusiast</p>
