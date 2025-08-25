@@ -10,8 +10,6 @@
         :root {
             --bg-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --bg-dark: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-            --header-bg-light: rgba(255, 255, 255, 0.1);
-            --header-bg-dark: rgba(0, 0, 0, 0.2);
             --text-color-light: #333;
             --text-color-dark: #fff;
             --section-bg-light: rgba(255, 255, 255, 0.95);
@@ -49,15 +47,6 @@
             color: var(--text-color-dark);
             background: var(--bg-dark);
         }
-        body.dark-mode .header {
-            background: var(--header-bg-dark);
-            border: var(--border-dark);
-        }
-        body.dark-mode .header h1,
-        body.dark-mode .header p,
-        body.dark-mode .header .bio {
-            color: var(--text-color-dark);
-        }
         body.dark-mode .section {
             background: var(--section-bg-dark);
             box-shadow: var(--section-shadow-dark);
@@ -65,7 +54,10 @@
         body.dark-mode .section h2,
         body.dark-mode .section h3,
         body.dark-mode .section h4,
-        body.dark-mode .section p {
+        body.dark-mode .section p,
+        body.dark-mode .header h1,
+        body.dark-mode .header p,
+        body.dark-mode .header .bio {
             color: var(--text-color-dark);
         }
         body.dark-mode .section h2::after {
@@ -106,12 +98,12 @@
         .header {
             text-align: center;
             padding: 60px 0;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--section-bg-light);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--section-shadow-light);
+            border: var(--border-light);
             transition: background 0.5s ease, border 0.5s ease;
         }
         .profile-img {
@@ -130,21 +122,22 @@
         }
         .header h1 {
             font-size: 3em;
-            color: white;
+            color: #333; /* Default color for light mode */
             margin-bottom: 10px;
             font-weight: 300;
         }
         .header p {
             font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.9);
+            color: #333; /* Default color for light mode */
             margin-bottom: 20px;
         }
         .header .bio {
             max-width: 600px;
             margin: 0 auto;
             font-size: 1.1em;
-            color: rgba(255, 255, 255, 0.8);
+            color: #333; /* Default color for light mode */
             line-height: 1.8;
+            text-align: justify;
         }
         .resume-btn {
             display: inline-block;
@@ -548,10 +541,10 @@
     <div class="container" id="top">
         <header class="section header">
             <div class="profile-img">NM</div>
-            <h1>Nithish M</h1>
+            <h1><b>Nithish M</b></h1>
             <p>ECE Student | Aspiring Developer | IoT & ML Enthusiast</p>
             <div class="bio">
-                An aspiring Engineering student with a strong passion for exploring emerging technologies and continuously expanding knowledge. A responsible and reliable team player, committed to contributing effectively and collaboratively while maintaining a keen curiosity for the latest innovations.
+                An aspiring Engineering student with a strong passion for exploring technologies and continuously expanding knowledge. A responsible and reliable team player, committed to contributing effectively and collaboratively while maintaining a keen curiosity for the latest innovations.
             </div>
             <a href="https://drive.google.com/file/d/1uE36soPjaH2heiBSm_NddhZF02sWS-9q/view?usp=sharing" class="resume-btn" target="_blank">
                 <i class="fas fa-file-alt"></i> View Resume
@@ -758,7 +751,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.getElementById('darkModeToggle');
             const body = document.body;
-
+            
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
                 body.classList.add(savedTheme);
@@ -766,7 +759,7 @@
                     toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
                 }
             }
-
+            
             toggleButton.addEventListener('click', () => {
                 body.classList.toggle('dark-mode');
                 if (body.classList.contains('dark-mode')) {
